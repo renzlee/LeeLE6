@@ -1,0 +1,31 @@
+<section class="desk" *ngIf="signedIn; else notSignedIn">
+  <div class="desk-intro">
+    <p class="kicker caps">The Newsroom</p>
+    <h2>File a story for the next edition.</h2>
+    <p>Give it a headline and write the story below. It goes on the front page as soon as you file it, with your name in the byline.</p>
+    <p class="fine">Stories are sent to the Blog API with your sign-in token.</p>
+  </div>
+
+  <form class="coupon" name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+    <p class="cut caps">Copy desk</p>
+    <h3 class="caps">Story slip</h3>
+    <label class="line-field" for="title">
+      <span>Headline</span>
+      <input id="title" type="text" name="title" maxlength="150" [(ngModel)]="form.title" required #title="ngModel">
+    </label>
+    <label class="line-field" for="body">
+      <span>Story</span>
+      <textarea id="body" name="body" [(ngModel)]="form.body" required #body="ngModel"></textarea>
+    </label>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <button class="press" [disabled]="!f.valid">File the story</button>
+  </form>
+</section>
+
+<ng-template #notSignedIn>
+  <section class="notice">
+    <p class="kicker caps">The Newsroom</p>
+    <h2>Only subscribers can file stories.</h2>
+    <p><a routerLink="/login">Sign in</a> or <a routerLink="/register">subscribe</a> first, then come back to write.</p>
+  </section>
+</ng-template>

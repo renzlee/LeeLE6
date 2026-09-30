@@ -1,0 +1,38 @@
+<section class="desk">
+  <div class="desk-intro">
+    <p class="kicker caps">Subscriber Desk</p>
+    <h1>Welcome Back</h1>
+    <h2>Sign in to file your next story.</h2>
+    <p>Readers who sign in can write stories for the front page. Your sign-in lasts for this browser session.</p>
+    <p class="fine">Forgot to subscribe? <a routerLink="/register">Fill out a subscription form</a> first.</p>
+  </div>
+
+  <form class="coupon" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+    <p class="cut caps">Cut along the dotted line</p>
+    <h3 class="caps">Login Here &middot; Sign-in slip</h3>
+    <div>
+      <label class="line-field" for="username">
+        <span>Username</span>
+        <input
+          id="username"
+          required
+          type="text"
+          name="username"
+          [(ngModel)]="form.username"
+          #username="ngModel">
+      </label>
+
+      <label class="line-field" for="password">
+        <span>Password</span>
+        <input id="password" type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          #password="ngModel">
+      </label>
+    </div>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <button class="press">Sign in</button>
+    <p class="aside">No account yet? <a routerLink="/register">Subscribe here</a>.</p>
+  </form>
+</section>

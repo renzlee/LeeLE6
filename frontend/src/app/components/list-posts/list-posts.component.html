@@ -1,0 +1,34 @@
+<section class="front" *ngIf="lead">
+  <article class="lead">
+    <p class="kicker caps">Top story &middot; No. {{ lead.id }}</p>
+    <h2><a [routerLink]="['/posts', lead.id]">{{ lead.title }}</a></h2>
+    <p class="byline caps">By {{ lead.firstName }} {{ lead.lastName }} &nbsp;&middot;&nbsp; {{ lead.dateCreated | date:'MMMM d, y, h:mm a' }}</p>
+    <p class="lead-body" [class.two-col]="lead.body.length > 380">{{ lead.body }}</p>
+    <a class="more caps" [routerLink]="['/posts', lead.id]">Read the full story</a>
+  </article>
+
+  <aside class="index">
+    <h3 class="caps">In this edition</h3>
+    <ol>
+      <li *ngFor="let post of posts; let i = index">
+        <a [routerLink]="['/posts', post.id]">{{ post.title }}</a>
+        <span class="page">A{{ i + 1 }}</span>
+      </li>
+    </ol>
+    <p class="count caps">{{ posts?.length }} stories &middot; {{ lead.dateCreated | date:'MMM d' }} edition</p>
+  </aside>
+</section>
+
+<hr class="rule-thick" *ngIf="rest.length">
+
+<section class="columns">
+  <article class="story" *ngFor="let post of rest; let i = index">
+    <p class="kicker caps">Page A{{ i + 2 }} &middot; {{ post.dateCreated | date:'MMM d, y' }}</p>
+    <h3><a [routerLink]="['/posts', post.id]">{{ post.title }}</a></h3>
+    <p class="byline caps">By {{ post.firstName }} {{ post.lastName }}</p>
+    <p class="excerpt">{{ post.body | slice:0:170 }}{{ post.body.length > 170 ? '...' : '' }}</p>
+    <a class="more caps" [routerLink]="['/posts', post.id]">Continue reading</a>
+  </article>
+</section>
+
+<p class="empty" *ngIf="loaded && !lead">No stories have been filed yet. <a routerLink="/write">Write the first one.</a></p>

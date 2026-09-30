@@ -1,0 +1,64 @@
+<section class="desk">
+  <div class="desk-intro">
+    <p class="kicker caps">Circulation Department</p>
+    <h2>Subscribe to The Lee Dispatch.</h2>
+    <p>A subscription is free. Fill out the form and you can sign in right away to write stories for the front page.</p>
+    <p class="fine">Already a subscriber? <a routerLink="/login">Sign in at the Subscriber Desk</a>.</p>
+  </div>
+
+  <form class="coupon"
+      name="form"
+      (ngSubmit)="onSubmit()"
+      #f="ngForm">
+    <p class="cut caps">Cut along the dotted line</p>
+    <h3 class="caps">Subscription form</h3>
+
+    <div class="pair">
+      <label class="line-field" for="firstName">
+        <span>First Name</span>
+        <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            [(ngModel)]="form.firstName"
+            required
+            #firstName="ngModel" />
+      </label>
+
+      <label class="line-field" for="lastName">
+        <span>Last Name</span>
+        <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            [(ngModel)]="form.lastName"
+            required
+            #lastName="ngModel" />
+      </label>
+    </div>
+
+    <label class="line-field" for="username">
+      <span>Username</span>
+      <input
+          id="username"
+          type="text"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel" />
+    </label>
+
+    <label class="line-field" for="password">
+      <span>Password</span>
+      <input
+          id="password"
+          type="password"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          #password="ngModel" />
+    </label>
+
+    <button class="press">Subscribe</button>
+  </form>
+</section>

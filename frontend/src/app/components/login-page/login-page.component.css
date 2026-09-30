@@ -1,0 +1,13 @@
+/* The page heading keeps the handout's "Welcome Back" / "Login Here" text, set as a small label + headline. */
+.desk-intro h1 {
+  margin: 0 0 4px;
+  font-family: var(--headline);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.05;
+}
+.desk-intro h2 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 24px;
+}

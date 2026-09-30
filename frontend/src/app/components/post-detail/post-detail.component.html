@@ -1,0 +1,11 @@
+<article class="story-page" *ngIf="post">
+  <p class="trail caps"><a routerLink="/">Front Page</a> &nbsp;/&nbsp; Story No. {{ post.id }}</p>
+  <h2 class="headline">{{ post.title }}</h2>
+  <div class="dateline caps">
+    <span>By {{ post.firstName }} {{ post.lastName }} <em>({{ post.userName }})</em></span>
+    <span>{{ post.dateCreated | date:'EEEE, MMMM d, y · h:mm a' }}</span>
+  </div>
+  <div class="story-body" [class.two-col]="post.body.length > 420">{{ post.body }}</div>
+  <p class="endmark">&mdash; 30 &mdash;</p>
+  <a class="back caps" routerLink="/">Back to the front page</a>
+</article>

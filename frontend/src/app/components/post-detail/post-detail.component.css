@@ -1,0 +1,51 @@
+.story-page { max-width: 820px; margin: 0 auto; }
+
+.trail { margin: 0 0 14px; color: var(--faded); }
+.trail a { color: var(--red); text-decoration: none; font-weight: 700; }
+
+.headline {
+  margin: 0 0 16px;
+  font-family: var(--headline);
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.06;
+}
+
+.dateline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+.dateline em { font-style: normal; color: var(--faded); }
+
+.story-body {
+  margin-top: 22px;
+  font-size: 20px;
+  line-height: 1.65;
+  text-align: justify;
+  white-space: pre-line;
+}
+.story-body.two-col { column-count: 2; column-gap: 32px; column-rule: 1px solid #cfc6b1; font-size: 18px; }
+.story-body::first-letter {
+  float: left;
+  font-family: var(--headline);
+  font-weight: 700;
+  font-size: 74px;
+  line-height: 0.82;
+  padding: 7px 10px 0 0;
+}
+
+/* "30" is the newspaper mark for the end of a story */
+.endmark { margin: 28px 0 18px; text-align: center; letter-spacing: 0.3em; color: var(--faded); }
+
+.back { display: inline-block; color: var(--red); text-decoration: none; font-weight: 700; border-bottom: 1px solid var(--red); }
+
+@media (max-width: 720px) {
+  .headline { font-size: 34px; }
+  .dateline { flex-direction: column; gap: 4px; }
+  .story-body.two-col { column-count: 1; }
+}

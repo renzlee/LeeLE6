@@ -1,0 +1,32 @@
+<div class="sheet">
+  <header class="masthead">
+    <div class="ears caps">
+      <span>Vol. I &middot; No. 6</span>
+      <span>{{ today | date:'EEEE, MMMM d, y' }}</span>
+      <span>Manila &middot; Reader's edition</span>
+    </div>
+    <hr class="rule">
+    <h1 class="nameplate"><a routerLink="/">The Lee Dispatch</a></h1>
+    <p class="motto">Stories filed by its readers, printed by the Blog API</p>
+    <hr class="rule-double">
+    <nav class="sections caps">
+      <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }">Front Page</a>
+      <a routerLink="/write" routerLinkActive="on">Write a Story</a>
+      <ng-container *ngIf="!signedIn">
+        <a routerLink="/login" routerLinkActive="on">Sign In</a>
+        <a routerLink="/register" routerLinkActive="on">Subscribe</a>
+      </ng-container>
+      <a *ngIf="signedIn" href="/" (click)="$event.preventDefault(); signOut()">Sign Out</a>
+    </nav>
+    <hr class="rule">
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="colophon">
+    <hr class="rule-thick">
+    <p class="caps">Printed and published by Renz Michael G. Lee &middot; Set in Libre Caslon and PT Serif &middot; Stories served from localhost:5161</p>
+  </footer>
+</div>

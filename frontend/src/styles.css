@@ -1,0 +1,141 @@
+/* The Lee Dispatch - a broadsheet newspaper look for the blog.
+   Paper, ink and one red; no rounded corners, no shadows. */
+:root {
+  --paper: #f3eee2;
+  --paper-dark: #e9e2d0;
+  --ink: #1d1b17;
+  --ink-soft: #4a453c;
+  --faded: #7a7263;
+  --red: #8a1d12;
+  --rule: #1d1b17;
+
+  --masthead: 'UnifrakturMaguntia', 'Old English Text MT', serif;
+  --headline: 'Libre Caslon Text', 'Georgia', serif;
+  --text: 'PT Serif', 'Georgia', serif;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 16px;
+  line-height: 1.55;
+  background: var(--paper);
+}
+
+a { color: inherit; }
+
+/* Small capitals used for labels, datelines and section names */
+.caps {
+  font-family: var(--text);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+.rule-thick { border: 0; border-top: 3px solid var(--rule); margin: 0; }
+.rule-double { border: 0; border-top: 4px double var(--rule); margin: 0; }
+
+/* Plain ink button, like a rubber stamp block */
+.press {
+  font-family: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 10px 22px;
+  cursor: pointer;
+}
+.press:hover { background: var(--red); border-color: var(--red); }
+
+/* Form fields drawn as lines on a printed coupon */
+.line-field { display: block; margin-bottom: 18px; }
+.line-field span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+.line-field input,
+.line-field textarea {
+  width: 100%;
+  font-family: var(--text);
+  font-size: 17px;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  padding: 4px 2px;
+  outline: none;
+}
+.line-field textarea {
+  border: 1px solid var(--ink);
+  min-height: 220px;
+  line-height: 1.6;
+  resize: vertical;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 26px, #d8cfb9 26px, #d8cfb9 27px);
+  background-position: 0 6px;
+}
+.line-field input:focus,
+.line-field textarea:focus { border-color: var(--red); }
+
+/* ---- desk pages (sign in, subscribe, write): intro column + a clipped coupon ---- */
+.desk {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 1000px;
+  margin: 10px auto 0;
+}
+.desk-intro .kicker { margin: 0 0 8px; color: var(--red); font-weight: 700; font-size: 11px; }
+.desk-intro h2 {
+  margin: 0 0 14px;
+  font-family: var(--headline);
+  font-size: 40px;
+  line-height: 1.1;
+}
+.desk-intro p { margin: 0 0 12px; font-size: 17px; color: var(--ink-soft); }
+.desk-intro .fine { font-size: 13px; font-style: italic; color: var(--faded); }
+
+.coupon {
+  position: relative;
+  padding: 26px 30px 24px;
+  border: 2px dashed var(--ink);
+  background: var(--paper-dark);
+}
+.coupon .cut {
+  position: absolute;
+  top: -9px;
+  left: 22px;
+  margin: 0;
+  padding: 0 8px;
+  background: var(--paper);
+  font-size: 10px;
+  color: var(--faded);
+}
+.coupon h3 {
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 3px double var(--ink);
+  font-size: 13px;
+}
+.coupon .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+.coupon .error { margin: 0 0 14px; color: var(--red); font-style: italic; }
+.coupon .aside { margin: 16px 0 0; font-size: 14px; color: var(--ink-soft); }
+.coupon .aside a { color: var(--red); }
+
+@media (max-width: 820px) {
+  .desk { grid-template-columns: 1fr; gap: 24px; }
+  .coupon .pair { grid-template-columns: 1fr; }
+}

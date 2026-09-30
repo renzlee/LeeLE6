@@ -1,0 +1,67 @@
+.sheet {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 36px 28px;
+}
+
+/* ---- masthead ---- */
+.ears {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  color: var(--ink-soft);
+}
+
+.nameplate {
+  margin: 14px 0 0;
+  text-align: center;
+  font-family: var(--masthead);
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+.nameplate a { text-decoration: none; }
+
+.motto {
+  margin: 4px 0 12px;
+  text-align: center;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* ---- section nav ---- */
+.sections {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 7px 0;
+}
+.sections a {
+  padding: 2px 22px;
+  text-decoration: none;
+  border-left: 1px solid var(--ink);
+  font-size: 12px;
+}
+.sections a:first-child { border-left: 0; }
+.sections a:hover { color: var(--red); }
+.sections a.on { color: var(--red); font-weight: 700; }
+
+main { min-height: 480px; padding-top: 26px; }
+
+/* ---- colophon ---- */
+.colophon { margin-top: 40px; }
+.colophon p {
+  margin: 8px 0 0;
+  text-align: center;
+  color: var(--faded);
+  font-size: 10px;
+}
+
+@media (max-width: 720px) {
+  .sheet { padding: 12px 16px; }
+  .ears span:last-child { display: none; }
+  .nameplate { font-size: 44px; }
+  .sections a { padding: 2px 10px; }
+}
